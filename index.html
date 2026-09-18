@@ -1,129 +1,516 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <base href="$FLUTTER_BASE_HREF" />
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8" />
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta name="description" content="A new Flutter project." />
+<title>VIP MARATHI TRADER</title>
 
-    <!-- iOS meta tags & icons -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="persistent_project" />
-    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+<meta name="description" content="Join King of Nifty for free daily Nifty & BankNifty analysis.">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png" />
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <title>groceryshop</title>
-    <link rel="manifest" href="manifest.json" />
+body{
+    font-family:Arial,Segoe UI,sans-serif;
+    background:#f7f9fc;
+    color:#151525;
+}
 
-    <style>
-      body {
-        background: #000;
-        margin: 0;
-        overflow: hidden;
-      }
+.container{
+    width:100%;
+    max-width:440px;
+    margin:auto;
+    padding:22px 10px;
+    text-align:center;
+}
 
-      #loading-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-      }
 
-      .loader {
-        border: 6px solid rgba(255, 255, 255, 0.2);
-        border-top: 6px solid #87ceeb;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
-      }
+/* Online Bar */
 
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
-  </head>
-  <body
-    style="
-      background-color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    "
-  >
-    <!-- Loader Container -->
-    <div id="loading-container">
-      <div class="loader"></div>
+.online{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#e8f5e9;
+    color:#218739;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    background:#22c55e;
+    border-radius:50%;
+}
+
+
+/* Profile */
+
+.profile{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:18px auto 8px;
+    overflow:hidden;
+    border:3px solid white;
+    box-shadow:0 4px 15px #ddd;
+}
+
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+
+/* Title */
+
+h1{
+    font-size:20px;
+    margin:8px 0 3px;
+    font-weight:800;
+}
+
+.tag{
+    color:#0066ff;
+    font-weight:bold;
+    font-size:12px;
+}
+
+
+/* Rating */
+
+.rating{
+    margin:10px;
+    color:#ff9800;
+    font-size:16px;
+}
+
+.rating small{
+    color:#777;
+    font-size:11px;
+}
+
+
+/* Buttons */
+
+.btn{
+    position:relative;
+    display:block;
+
+    width:100%;
+    max-width:420px;
+
+    margin:14px auto;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #0066ff,
+        #004dcc
+    );
+
+    color:white;
+
+    padding:18px 8px;
+
+    border-radius:11px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+    font-size:13px;
+
+    white-space:nowrap;
+
+    box-shadow:
+        0 4px 12px #b8d0ff;
+}
+
+
+/* Sliding Light */
+
+.btn::after{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:45%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.75),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    animation:buttonLight 2s infinite;
+}
+
+@keyframes buttonLight{
+
+    0%{
+        left:-100%;
+    }
+
+    45%{
+        left:120%;
+    }
+
+    100%{
+        left:120%;
+    }
+
+}
+
+
+/* Stats */
+
+.stats{
+    display:flex;
+    gap:7px;
+    margin:14px 0;
+}
+
+.card{
+    flex:1;
+    background:white;
+    padding:11px 4px;
+    border-radius:11px;
+    box-shadow:0 2px 7px #eee;
+    font-size:11px;
+}
+
+.number{
+    color:#0066ff;
+    font-size:17px;
+    font-weight:bold;
+    margin-bottom:2px;
+}
+
+
+/* Content */
+
+.heading{
+    font-size:15px;
+    font-weight:bold;
+    line-height:1.4;
+}
+
+.heading span{
+    color:#0066ff;
+}
+
+.sub{
+    color:#777;
+    margin:7px;
+    font-size:11px;
+}
+
+
+/* Alert */
+
+.alert{
+    background:#fff3e0;
+    color:#e65100;
+    padding:9px;
+    border-radius:25px;
+    font-size:11px;
+    font-weight:bold;
+    margin:13px 0;
+}
+
+
+/* Features */
+
+.feature{
+    background:white;
+    padding:11px;
+    margin:7px 0;
+    border-radius:10px;
+
+    text-align:left;
+
+    display:flex;
+    gap:9px;
+    align-items:center;
+
+    box-shadow:0 2px 6px #eee;
+
+    font-size:12px;
+}
+
+.icon{
+    font-size:18px;
+}
+
+
+/* Footer */
+
+.ads{
+    margin-top:22px;
+    padding:13px;
+    border-top:1px solid #ddd;
+    font-size:11px;
+    color:#777;
+}
+
+.ads a{
+    color:#0066ff;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.disclaimer{
+    margin-top:14px;
+    font-size:9px;
+    color:#999;
+    line-height:1.4;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Online -->
+
+    <div class="online">
+        <span class="dot"></span>
+        5,947 Traders Online Now
     </div>
 
-    <script src="flutter.js" defer></script>
 
-    <script>
-      var scriptLoaded = false;
+    <!-- Profile -->
 
-      function loadMainDartJs() {
-        if (scriptLoaded) return;
-        scriptLoaded = true;
-        var scriptTag = document.createElement("script");
-        scriptTag.src = "main.dart.js";
-        scriptTag.type = "application/javascript";
-        document.body.appendChild(scriptTag);
-      }
+    <div class="profile">
 
-      function removeLoader() {
-        var loader = document.getElementById("loading-container");
-        if (loader) {
-          loader.style.display = "none";
-        }
-      }
+        <img
+        src="https://i.ibb.co/S44tjK3Z/ff-TLTo-z-B7-Sc-IFv-KTFKHKTN5p5-LXqnypv9g-Xo7c6-IRmefm9-Qv-Ea4wnn0-Nuu-JZam-QDTWNu-Ty9h-0o-Zmc-SSy-Si-VWQ.jpg"alt="Logo">
 
-      window.addEventListener("flutter-first-frame", function () {
-        removeLoader();
-        window.parent.postMessage({ type: "LOADING_COMPLETED", }, "*");
-      });
+    </div>
 
-      loadMainDartJs();
-    </script>
 
-    <script>
-      // Navigation tracking
-      (function (history) {
-        const pushState = history.pushState;
-        const replaceState = history.replaceState;
+    <!-- Title -->
 
-        function logNavigation(method, url) {
-          // console.log(`[IN FLUTTER APP] - Navigated (${method}): ${url}`);
-          window.parent.postMessage({ type: "NAVIGATION", method, url }, "*");
-        }
+    <h1>PUSHKAR RAJ THAKUR 0</h1>
 
-        history.pushState = function (state, title, url) {
-          logNavigation("pushState", url);
-          return pushState.apply(history, arguments);
-        };
+    <div class="tag">
+        🏆 India's No.1 Stock Market Channel
+    </div>
 
-        history.replaceState = function (state, title, url) {
-          logNavigation("replaceState", url);
-          return replaceState.apply(history, arguments);
-        };
 
-        window.addEventListener("popstate", function (event) {
-          logNavigation("popstate", location.href);
-        });
-      })(window.history);
-    </script>
-  </body>
+    <!-- Rating -->
+
+    <div class="rating">
+
+        ★★★★★
+
+        <br>
+
+        <small>
+            4.9/5 (2340 Reviews)
+        </small>
+
+    </div>
+
+
+    <!-- Button -->
+
+    <a
+    class="btn"
+    href="https://t.me/+k9VQjMywXmg4MGU1">
+
+        Join Free Telegram Channel →
+
+    </a>
+
+
+    <!-- Stats -->
+
+    <div class="stats">
+
+        <div class="card">
+
+            <div class="number">
+                50K+
+            </div>
+
+            Members
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="number">
+                5+
+            </div>
+
+            Years
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="number">
+                95%
+            </div>
+
+            Accuracy
+
+        </div>
+
+    </div>
+
+
+    <!-- Content -->
+
+    <div class="heading">
+
+        Get <span>FREE Daily Calls</span>
+
+        <br>
+
+        for NIFTY, BANKNIFTY & SENSEX
+
+    </div>
+
+
+    <div class="sub">
+
+        Join thousands of traders getting daily market analysis
+
+    </div>
+
+
+    <!-- Alert -->
+
+    <div class="alert">
+
+        🔥 Limited FREE Access Available
+
+    </div>
+
+
+    <!-- Features -->
+
+    <div class="feature">
+
+        <div class="icon">
+            📊
+        </div>
+
+        <div>
+            Daily Nifty & BankNifty Levels
+        </div>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="icon">
+            🎓
+        </div>
+
+        <div>
+            Educational Market Analysis
+        </div>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="icon">
+            👥
+        </div>
+
+        <div>
+            50,000+ Subscribers Community
+        </div>
+
+    </div>
+
+
+    <!-- Second Button -->
+
+    <a
+    class="btn"
+    href="https://t.me/+k9VQjMywXmg4MGU1">
+
+        Join Free Telegram Channel →
+
+    </a>
+
+
+    <!-- Disclaimer -->
+
+    <div class="disclaimer">
+
+        <strong>
+            Disclaimer:
+        </strong>
+
+        <br>
+
+        This channel is for educational purposes only.
+        Trading involves market risk.
+        Please consult your financial advisor before making investment decisions.
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <div class="ads">
+
+        🔥 Powered by
+
+        <a href="https://telegram.me/+3XoqJNLxYHswNTc1">
+
+            ADBUILDAGENCY
+
+        </a>
+
+    </div>
+
+</div>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4431423353737188');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4431423353737188&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</body>
 </html>
